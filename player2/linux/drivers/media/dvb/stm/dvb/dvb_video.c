@@ -1371,7 +1371,7 @@ static int VideoRelease (struct inode*  Inode,
     struct DvbContext_s*        DvbContext      = Context->DvbContext;
 
     DVB_DEBUG ("Id %d\n", Context->Id);
-
+/*
     if ((File->f_flags & O_ACCMODE) != O_RDONLY)
     {
         mutex_lock (&(DvbContext->Lock));
@@ -1380,7 +1380,7 @@ static int VideoRelease (struct inode*  Inode,
         {
             unsigned int    MutexIsLocked       = true;
             /* Discard previously injected data to free the lock. */
-            DvbStreamDrain (Context->VideoStream, true);
+/*            DvbStreamDrain (Context->VideoStream, true);
 
             if (mutex_lock_interruptible (Context->ActiveVideoWriteLock) != 0)
                 MutexIsLocked           = false;
@@ -1395,14 +1395,14 @@ static int VideoRelease (struct inode*  Inode,
         DvbDisplayDelete (BACKEND_VIDEO_ID, Context->Id);
 
         /* Check to see if audio and demux have also finished so we can release the playback */
-        if ((Context->AudioStream == NULL) && (Context->DemuxStream == NULL) && (Context->Playback != NULL))
+/*        if ((Context->AudioStream == NULL) && (Context->DemuxStream == NULL) && (Context->Playback != NULL))
         {
             /* Check to see if our playback has already been deleted by the demux context */
-            if (Context->DemuxContext->Playback != NULL)
+/*            if (Context->DemuxContext->Playback != NULL)
             {
                 /* Try and delete playback then set our demux to Null if succesful or not.  If we fail someone else
                    is still using it but we are done with it. */
-                if (DvbPlaybackDelete (Context->Playback) == 0)
+/*                if (DvbPlaybackDelete (Context->Playback) == 0)
                     DVB_DEBUG("Playback deleted successfully\n");
             }
             Context->Playback                   = NULL;
@@ -1417,7 +1417,7 @@ static int VideoRelease (struct inode*  Inode,
         VideoInit (Context);
         mutex_unlock (&(DvbContext->Lock));
     }
-
+*/
     return dvb_generic_release (Inode, File);
 }
 /*}}}*/
