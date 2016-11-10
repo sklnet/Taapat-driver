@@ -74,6 +74,8 @@ obj-y	+= i2c_spi/
 obj-y	+= smartcard/
 obj-y	+= cpu_frequ/
 obj-y	+= cec/
+obj-y   += dvbt/as102/
+obj-y   += dvbt/siano/
 endif
 
 endif
