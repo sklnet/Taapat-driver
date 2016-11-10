@@ -46,10 +46,6 @@ obj-y	+= frontcontroller/
 obj-y	+= compcache/
 obj-y	+= bpamem/
 
-ifndef  MINIMAL
-obj-y	+= wireless/
-endif
-
 ifdef  HL101
 obj-y	+= smartcard/
 obj-y	+= cpu_frequ/
