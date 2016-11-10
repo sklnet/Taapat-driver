@@ -19,9 +19,6 @@ CONFIGFILE := $(DRIVER_TOPDIR)/.config
 
 include $(CONFIGFILE)
 
-ifdef HL101
-CCFLAGSY += -DHL101
-endif
 ifdef SPARK
 CCFLAGSY+=-DSPARK
 endif
@@ -45,19 +42,6 @@ obj-y	+= frontends/
 obj-y	+= frontcontroller/
 obj-y	+= compcache/
 obj-y	+= bpamem/
-
-ifdef  HL101
-obj-y	+= smartcard/
-obj-y	+= cpu_frequ/
-obj-y	+= cec/
-obj-y	+= cic/
-endif
-
-ifndef SPARK
-ifndef SPARK7162
-obj-y	+= cic/
-endif
-endif
 
 ifdef SPARK
 obj-y	+= smartcard/
